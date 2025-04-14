@@ -17,7 +17,9 @@ const tbody = document.querySelector('tbody')
 
 function display() {
     for (const book of myLibrary) {
-        const row = document.createElement('tr')
+        if (tbody.querySelector(`[data-id="${book.id}"]`)) continue;
+        const row = document.createElement('tr');
+        row.setAttribute("data-id", book.id);
         for (const property in book) {
             if (property.includes("id")) continue;
             const cell = document.createElement('td');
@@ -35,7 +37,9 @@ showDialog.addEventListener("click", () => {
     dialog.showModal()
 })
 
-const submit = document.querySelector('#submit')
+const submit = document.querySelector("#submit")
+const cancel = document.querySelector("#cancel")
+const form = document.querySelector("form")
 const title = document.querySelector("#title")
 const author = document.querySelector("#author")
 const pages = document.querySelector("#pages")
@@ -45,6 +49,10 @@ submit.addEventListener("click", (event) => {
     event.preventDefault();
     addBookToLibrary(title.value, author.value, pages.value, read.value);
     display();
+    form.reset();
     dialog.close();
 })
 
+cancel.addEventListener("click", () => {
+    dialog.close()
+})
