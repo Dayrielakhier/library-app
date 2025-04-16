@@ -25,6 +25,16 @@ function display() {
             const cell = document.createElement('td');
             cell.textContent = book[property];
             row.appendChild(cell);
+            if (cell.textContent === book.read) {
+                cell.setAttribute("contenteditable", "true");
+                cell.addEventListener("keydown", (event) => {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        book.read = cell.textContent;
+                        cell.blur();
+                    }
+                });
+            }
         }
         const remove = document.createElement("button");
         remove.textContent = "Remove";
