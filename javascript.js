@@ -26,7 +26,14 @@ function display() {
             cell.textContent = book[property];
             row.appendChild(cell);
         }
-        tbody.appendChild(row)
+        const remove = document.createElement("button");
+        remove.textContent = "Remove";
+        row.appendChild(remove);
+        tbody.appendChild(row);
+        remove.addEventListener("click", () => {
+            myLibrary.splice(myLibrary.findIndex(book => book.id === row.getAttribute("data-id")), 1);
+            row.remove();
+        })
     }
 }
 
