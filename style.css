@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -6,4 +10,40 @@ td, th {
     border: 1px solid #999;
     padding: 0.5rem;
     text-align: left;
+}
+
+legend {
+    text-align: center;
+}
+
+#show-dialog {
+    margin-top: 1rem;
+}
+
+.remove {
+    margin: 1rem;
+}
+
+dialog {
+    border-radius: 6px;
+}
+
+legend {
+    margin-bottom: 12px;
+}
+
+form > div {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    text-align: right;
+    width: 90px;
+    padding-right: 10px;
+}
+
+#cancel {
+    margin-left: 5rem;
 }
