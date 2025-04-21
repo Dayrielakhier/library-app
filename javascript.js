@@ -38,6 +38,7 @@ function display() {
         }
         const remove = document.createElement("button");
         remove.textContent = "Remove";
+        remove.classList.add("remove");
         row.appendChild(remove);
         tbody.appendChild(row);
         remove.addEventListener("click", () => {
@@ -47,7 +48,7 @@ function display() {
     }
 }
 
-const showDialog = document.querySelector("#showDialog")
+const showDialog = document.querySelector("#show-dialog")
 const dialog = document.querySelector("dialog")
 
 showDialog.addEventListener("click", () => {
